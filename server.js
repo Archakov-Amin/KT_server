@@ -94,7 +94,7 @@ app.patch("/subjects/:id", async (req, res) => {
 app.delete("/subjects/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const deleteSubject = Subject.findByIdAndDelete(id);
+        const deleteSubject = await Subject.findByIdAndDelete(id);
 
         if (!deleteSubject) {
             res.send("Такого предмета не существует!");
